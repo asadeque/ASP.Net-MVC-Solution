@@ -1,0 +1,83 @@
+@model MidTermSolution.Models.Customer
+
+@{
+    ViewBag.Title = "Customer Details";
+}
+
+<h2>Customer Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Customer Name :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            Address 1 :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address1)
+        </dd>
+
+        <dt>
+            Address 2 :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address2)
+        </dd>
+
+        <dt>
+            Town :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Town)
+        </dd>
+
+        <dt>
+            Province :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Province)
+        </dd>
+
+        <dt>
+            Postal Code :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostalCode)
+        </dd>
+
+        <dt>
+            Email Address :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+    </dl>
+</div>
+
+<div class="col-md-2">
+    <a href="@Url.Action("EditCustomer", "Admin", new { id = Model.CustomerID })" class="btn btn-primary">
+        Edit
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    </a>
+</div>
+<div class="col-md-2">
+    <a href="@Url.Action("CustomersList", "Admin", null)" class="btn btn-primary">
+        Back to List
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </a>
+</div>
+<br />

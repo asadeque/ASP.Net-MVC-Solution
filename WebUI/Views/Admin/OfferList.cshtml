@@ -1,0 +1,99 @@
+@model IEnumerable<MidTermSolution.Models.Offer>
+
+@{
+    ViewBag.Title = "Offer List";
+}
+
+<h2>Offer List</h2>
+<div class="col-md-4">
+    <a href="@Url.Action("CreateOffer", "Admin", null)" class="btn btn-primary">
+        Create New
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Offer Code
+        </th>
+        <th>
+            Offer Type ID
+        </th>
+        <th>
+            Offer Description
+        </th>
+        <th>
+            Applies To Room ID
+        </th>
+        <th>
+            Value
+        </th>
+        <th>
+            Minimum Spend
+        </th>
+        <th>
+            Multiple Use
+        </th>
+        <th>
+            Assigned To
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfferCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfferTypeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfferDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppliesToRoomID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MinSpend)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MultipleUse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssignedTo)
+        </td>
+        <td>
+            <div class="col-md-4">
+                <a href="@Url.Action("DetailsOffer", "Admin", new { id = item.OfferId })" class="btn btn-primary">
+                    Details
+                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("EditOffer", "Admin", new { id = item.OfferId })" class="btn btn-primary">
+                    Edit
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("DeleteOffer", "Admin", new { id = item.OfferId })" class="btn btn-primary">
+                    Remove
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </a>
+            </div>
+        </td>
+    </tr>
+}
+</table>
+    <br />
+    <div class="col-md-4">
+        <a href="@Url.Action("Index", "Admin", null)" class="btn btn-primary">
+            Back to Admin
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+    </div>
+    <br/>

@@ -1,0 +1,74 @@
+@model MidTermSolution.Models.BookingRoom
+
+@{
+    ViewBag.Title = "Remove From Booking";
+}
+
+<h5>Are you sure you want to remove this from booking?</h5>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Image Url :
+        </dt>
+
+        <dd>
+            @*<img style="width:25%" src="Product.ImageUrl" alt="Product.ProductDescription" />*@
+           @Html.DisplayFor(model => model.Room.ImageUrl)
+        </dd>
+
+        <dt>
+            Booking ID :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingID)
+        </dd>
+
+        <dt>
+            Room Description :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Room.RoomDescription)
+        </dd>
+
+        <dt>
+            Number of Rooms :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfRooms)
+        </dd>
+
+        <dt>
+           Price :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Room.Price)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="col-md-2 col-md-push-0">
+                <button type="submit" class="btn btn-primary">
+                    <span>Delete Confirm</span>
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="col-md-2 col-md-push-0">
+                <a href="@Url.Action("BookingSummary", "Rooms", null)" class="btn btn-primary">
+                    Back to List
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+        <br/>
+    }
+</div>

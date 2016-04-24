@@ -1,0 +1,42 @@
+@model MidTermSolution.Models.Reservation
+
+@{
+    ViewBag.Title = "Reservation Details";
+}
+
+<h2>Reservation Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Reservation Date :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReservationDate)
+        </dd>
+
+        <dt>
+            Customer ID :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerID)
+        </dd>
+
+    </dl>
+</div>
+<div class="col-md-2">
+    <a href="@Url.Action("EditReservation", "Admin", new { id = Model.ReservationID })" class="btn btn-primary">
+        Edit
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    </a>
+</div>
+<div class="col-md-2">
+    <a href="@Url.Action("ReservationsList", "Admin", null)" class="btn btn-primary">
+        Back to List
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </a>
+</div>
+<br />

@@ -1,0 +1,66 @@
+@model IEnumerable<MidTermSolution.Models.Reservation>
+
+@{
+    ViewBag.Title = "Reservations";
+}
+
+<h2>Reservations List</h2>
+<div class="col-md-4">
+    <a href="@Url.Action("CreateReservation", "Admin", null)" class="btn btn-primary">
+        Create New
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Reservtion Date
+        </th>
+        <th>
+            Customer ID
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerID)
+        </td>
+        <td>
+            <div class="col-md-4">
+                <a href="@Url.Action("DetailsReservation", "Admin", new { id = item.ReservationID })" class="btn btn-primary">
+                    Details
+                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("EditReservation", "Admin", new { id = item.ReservationID })" class="btn btn-primary">
+                    Edit
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("DeleteReservation", "Admin", new { id = item.ReservationID })" class="btn btn-primary">
+                    Remove
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </a>
+            </div>
+        </td>
+    </tr>
+}
+
+</table>
+
+<br />
+<div class="col-md-4">
+    <a href="@Url.Action("Index", "Admin", null)" class="btn btn-primary">
+        Back to Admin
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </a>
+</div>
+<br />
+

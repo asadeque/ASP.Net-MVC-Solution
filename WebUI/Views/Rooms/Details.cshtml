@@ -1,0 +1,51 @@
+@model MidTermSolution.Models.Room
+
+@{
+    ViewBag.Title = "Room Details";
+}
+
+<h2>Room Details</h2>
+
+<div>
+        <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Image :
+        </dt>
+
+        <dd>
+            <img style="width:15%" src="/img/@Model.ImageUrl" alt="@Model.RoomDescription" />
+        </dd>
+
+        <dt>
+            Room Description :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomDescription)
+        </dd>
+
+        <dt>
+            Price :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+
+    </dl>
+</div>
+<div class="col-md-2">
+    <a href="@Url.Action("AddToBooking", "Rooms", new { id = Model.RoomID })" class="btn btn-primary">
+        Add to Booking
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+</div>
+<div class="col-md-2">
+    <a href="@Url.Action("Index", "Rooms", null)" class="btn btn-primary">
+        Back to List
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </a>
+</div>
+<br />

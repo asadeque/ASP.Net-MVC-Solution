@@ -1,0 +1,97 @@
+@model MidTermSolution.Models.Offer
+
+@{
+    ViewBag.Title = "Delete Offer";
+}
+
+<h2>Delete Offer</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Offer Code :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfferCode)
+        </dd>
+
+        <dt>
+            Offer Type ID :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfferTypeID)
+        </dd>
+
+        <dt>
+            Offer Description :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OfferDescription)
+        </dd>
+
+        <dt>
+            Applies To Room ID :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppliesToRoomID)
+        </dd>
+
+        <dt>
+            Value :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Value)
+        </dd>
+
+        <dt>
+            Minimum Spend :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinSpend)
+        </dd>
+
+        <dt>
+            Multiple Use :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MultipleUse)
+        </dd>
+
+        <dt>
+            Assigned To :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedTo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="col-md-2 col-md-push-0">
+                <button type="submit" class="btn btn-danger">
+                    <span>Delete Confirm</span>
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="col-md-2 col-md-push-0">
+                <a href="@Url.Action("OfferList", "Admin", null)" class="btn btn-primary">
+                    Back to List
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+        <br/>
+    }
+</div>

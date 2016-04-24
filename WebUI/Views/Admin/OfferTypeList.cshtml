@@ -1,0 +1,74 @@
+@model IEnumerable<MidTermSolution.Models.OfferType>
+
+
+    @{
+        ViewBag.Title = "Offer Type List";
+    }
+
+    <h2>Offer Type List</h2>
+
+    <div class="col-md-4">
+        <a href="@Url.Action("CreateOfferType", "Admin", null)" class="btn btn-primary">
+            Create New
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </a>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                Offer Module
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Description
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OfferModule)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <div class="col-md-4">
+                            <a href="@Url.Action("DetailsOfferType", "Admin", new { id = item.OfferTypeId })" class="btn btn-primary">
+                                Details
+                                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    <div class="col-md-4">
+                        <a href="@Url.Action("EditOfferType", "Admin", new { id = item.OfferTypeId })" class="btn btn-primary">
+                            Edit
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="@Url.Action("DeleteOfferType", "Admin", new { id = item.OfferTypeId })" class="btn btn-primary">
+                            Remove
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    <div class="col-md-4">
+        <a href="@Url.Action("Index", "Admin", null)" class="btn btn-primary">
+            Back to Admin
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+    </div>
+    <br />
+
